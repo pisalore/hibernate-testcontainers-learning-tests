@@ -94,10 +94,11 @@ public class HibernteLearningTest {
 
 	}
 	
-//	@Test
-//	public void testPostgresContainer() {
-//		assertTrue(postgreSQLContainer.isRunning());
-//	}
+	@Test
+	public void testHibernateReturnsNothingWhenNOMuseumsArePersisted() {
+		assertThat(entityManager.createQuery("FROM Museum", Museum.class).getResultList()).isEmpty();
+	}
+	
 
 	@Test
 	public void testHibernatePersistNewMuseum() {
